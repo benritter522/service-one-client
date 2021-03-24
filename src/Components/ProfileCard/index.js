@@ -8,17 +8,17 @@ class ProfileCard extends Component {
   render() {
 
     return (
-      <Base class={'card'}>
+      <Base className={'card'}>
       <img src={`${process.env.PUBLIC_URL}/images/placeholder.jpg`} alt='placeholder'/>
-      <div class='text'>
-        <div class='cardHeader'>{this.props.business_name}</div>
-        <div class='cardBody'>
+      <div className='text'>
+        <div className='cardHeader'>{this.props.business_name}</div>
+        <div className='cardBody'>
           <div>{this.props.street_address},</div>
           <div>{this.props.city}, {this.props.state} {this.props.zip_code_first5}</div>
         </div>
       </div>
       </Base>
-      
+
     );
   }
 
