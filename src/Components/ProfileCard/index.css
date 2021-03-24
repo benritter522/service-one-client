@@ -1,0 +1,18 @@
+
+.card {
+  border-radius: 10px;
+  width: 328px;
+  border: 1px solid #000000;
+}
+.cardHeader {
+  color: #2d42ba;
+  font-family: 'Karla', sans-serif;
+  font-size: 22px;
+  text-align: left;
+}
+.cardBody {
+  color: #93959F;
+  font-size: 11px;
+  text-align: left;
+  text-transform: uppercase;
+}
