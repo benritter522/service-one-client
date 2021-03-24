@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
-const virginia_data = require('../../data/loan_data_VA_Geocode');
+const virginia_data = require('../../data/loan_data_TEST');
 
 const containerStyle = {
     width: '90vw',
@@ -10,8 +10,8 @@ const containerStyle = {
 };
 
 const center = {
-    lng: -73.9934,
-    lat: 40.7505
+    lng: -77.5810390327,
+    lat: 37.5959240122
 };
 
 function MapComponent() {
@@ -54,23 +54,52 @@ function MapComponent() {
     // })
 
     // console.log(locations);
+    const minorIcon = {
+        // url: '../../icons/Minor_Need.png',
+        url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Minor_Need_m0lnc5.png',
+        scaledSize: { width: 20, height: 25 }
+    }
+    const moderateIcon = {
+        // url: '../../icons/Moderate_Need.png',
+        url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Moderate_Need_lhwil8.png',
+        scaledSize: { width: 20, height: 25 }
+    }
+    const seriousIcon = {
+        // url: '../../icons/Serious_Need.png',
+        url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Serious_Need_kzcveb.png',
+        scaledSize: { width: 20, height: 25 }
+    }
+    const criticalIcon = {
+        // url: '../../icons/Critical_Need.png',
+        url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Critical_Need_csmdmo.png',
+        scaledSize: { width: 20, height: 25 }
+    }
 
     return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={12}
+            zoom={10}
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
             { 
                 virginia_data.map((item, index) => {
+                    let iconChoice = minorIcon;
+                    if (item.loan_size_rank_by_state < 0.25) {
+                        iconChoice = minorIcon;
+                    } else if (item.loan_size_rank_by_state >= 0.25 && item.loan_size_rank_by_state < 0.50) {
+                        iconChoice = moderateIcon;
+                    } else if (item.loan_size_rank_by_state >= 0.50 && item.loan_size_rank_by_state < 0.75) {
+                        iconChoice = seriousIcon;
+                    } else if (item.loan_size_rank_by_state >= 0.75) {
+                        iconChoice = criticalIcon
+                    }
                     return (
                         <Marker 
                             key={'marker' + index} 
                             position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
-                            // position={center}
-                            // icon={compostIcon} 
+                            icon={iconChoice} 
                             onClick={() => onSelect(item)} //item in the array of data
                         />
                     )
@@ -80,12 +109,13 @@ function MapComponent() {
             selected ? (
                 <InfoWindow
                     position={{lat: selected.lat_long[0], lng: selected.lat_long[1]}}
-                    // position={center}
                     clickable={true}
                     onCloseClick={() => setSelected(null)}
                 >
                     <div>
-                        <p>I am a Marker's InfoWindow</p>
+                        <p>{selected.business_name}</p>
+                        <p>{selected.full_address}</p>
+
                     </div>
                 </InfoWindow>
                 ) : <></>
