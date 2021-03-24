@@ -7,12 +7,12 @@
 .cardHeader {
   color: #2d42ba;
   font-family: 'Karla', sans-serif;
-  font-size: 38px;
+  font-size: 22px;
   text-align: left;
 }
 .cardBody {
   color: #93959F;
-  font-size: 18px;
+  font-size: 11px;
   text-align: left;
   text-transform: uppercase;
 }
