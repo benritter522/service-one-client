@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+import ProfileCard from '../ProfileCard';
 const virginia_data = require('../../data/loan_data_TEST');
 
 const containerStyle = {
@@ -113,8 +114,14 @@ function MapComponent() {
                     onCloseClick={() => setSelected(null)}
                 >
                     <div>
-                        <p>{selected.business_name}</p>
-                        <p>{selected.full_address}</p>
+                        <ProfileCard
+                            business_name={selected.business_name}
+                            street_address={selected.street_address}
+                            city={selected.city}
+                            state={selected.state}
+                            zip_code_first5={selected.zip_code_first5}
+                        />
+                        <a style={{fontWeight: '400'}} href={`https://www.google.com/maps/search/?api=1&query=${selected.lat_long[0]},${selected.lat_long[1]}`}>Get Directions on Google Maps</a>
 
                     </div>
                 </InfoWindow>
