@@ -1,4 +1,5 @@
 import Map from '../Map';
+
 const Home = () => {
     return (
         <div>
