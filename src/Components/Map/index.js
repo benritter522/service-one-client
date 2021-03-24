@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+const virginia_data = require('../../data/loan_data_VA_Geocode');
 
 const containerStyle = {
     width: '90vw',
@@ -13,7 +14,19 @@ const center = {
     lat: 40.7505
 };
 
-function MapComponent(props) {
+function MapComponent() {
+
+    // const [locations, setLocations] = useState([]);
+
+    // const fetchLocations = async () => {
+    //     try {
+    //         const response = await fetch('https://api.jsonbin.io/b/605a96b7c197e473302dd37e')
+    //         const data = await response.json();
+    //         setLocations(data);
+    //     } catch(error) {
+    //         console.error(error);
+    //     }
+    // }
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -36,6 +49,12 @@ function MapComponent(props) {
         setMap(null)
     }, [])
 
+    // useEffect(() => {
+    //     fetchLocations();
+    // })
+
+    // console.log(locations);
+
     return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
@@ -44,19 +63,24 @@ function MapComponent(props) {
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
-            <Marker 
-                // key={item.index} 
-                // position={{lat: item.latitude, lng: item.longitude}}
-                position={center}
-                // icon={compostIcon} 
-
-                // onClick={() => onSelect(item)} //item in the array of data
-            />
+            { 
+                virginia_data.map((item, index) => {
+                    return (
+                        <Marker 
+                            key={'marker' + index} 
+                            position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
+                            // position={center}
+                            // icon={compostIcon} 
+                            onClick={() => onSelect(item)} //item in the array of data
+                        />
+                    )
+                })
+            }
             {
             selected ? (
                 <InfoWindow
-                    // position={{lat: selected.latitude, lng: selected.longitude}}
-                    position={center}
+                    position={{lat: selected.lat_long[0], lng: selected.lat_long[1]}}
+                    // position={center}
                     clickable={true}
                     onCloseClick={() => setSelected(null)}
                 >
