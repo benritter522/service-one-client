@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import ProfileCard from '../ProfileCard';
+
 // const virginia_data = require('../../data/loan_data_TEST');
 
 const containerStyle = {
@@ -12,11 +13,13 @@ const containerStyle = {
 };
 
 const center = {
-    lng: -77.0369,
-    lat: 38.9072
+    lng: -77.4360,
+    lat: 37.5407
 };
 
-function MapComponent() {
+function MapComponent(props) {
+
+    const { minorChecked, moderateChecked, seriousChecked, criticalChecked } = props;
 
     const [locations, setLocations] = useState([]);
 
@@ -103,13 +106,19 @@ function MapComponent() {
                             iconChoice = criticalIcon
                         }
                         return (
+                            ((iconChoice === minorIcon && minorChecked) || 
+                            (iconChoice === moderateIcon && moderateChecked) || 
+                            (iconChoice === seriousIcon && seriousChecked) || 
+                            (iconChoice === criticalIcon && criticalChecked))
+                        ?
+                        (
                             <Marker 
                                 key={'marker' + index} 
                                 position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
                                 icon={iconChoice} 
                                 onClick={() => onSelect(item)} //item in the array of data
                             />
-                        )
+                        ) : <></>)
                     })
                 ) : <></>
             }
