@@ -23,8 +23,9 @@ function ListView() {
 
   return locations ? (
     <div>
-      {locations.map(selected => (
+      {locations.map((selected, index) => (
         <ProfileCard
+            key={index}
             business_name={selected.business_name}
             street_address={selected.street_address}
             city={selected.city}
