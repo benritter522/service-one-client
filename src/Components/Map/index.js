@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import ProfileCard from '../ProfileCard';
-const virginia_data = require('../../data/loan_data_TEST');
+// const virginia_data = require('../../data/loan_data_TEST');
 
 const containerStyle = {
     width: '90vw',
@@ -17,17 +17,19 @@ const center = {
 
 function MapComponent() {
 
-    // const [locations, setLocations] = useState([]);
+    const [locations, setLocations] = useState([]);
 
-    // const fetchLocations = async () => {
-    //     try {
-    //         const response = await fetch('https://api.jsonbin.io/b/605a96b7c197e473302dd37e')
-    //         const data = await response.json();
-    //         setLocations(data);
-    //     } catch(error) {
-    //         console.error(error);
-    //     }
-    // }
+    const fetchLocations = async () => {
+        try {
+            const response = await fetch('https://villagr.herokuapp.com/api/DC')
+            const data = await response.json();
+            // console.log(data.data);
+            setLocations(data.data);
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -50,11 +52,10 @@ function MapComponent() {
         setMap(null)
     }, [])
 
-    // useEffect(() => {
-    //     fetchLocations();
-    // })
+    useEffect(() => {
+        fetchLocations();
+    }, [locations]);
 
-    // console.log(locations);
     const minorIcon = {
         // url: '../../icons/Minor_Need.png',
         url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Minor_Need_m0lnc5.png',
@@ -76,6 +77,8 @@ function MapComponent() {
         scaledSize: { width: 20, height: 25 }
     }
 
+    // console.log(locations);
+
     return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
@@ -85,26 +88,29 @@ function MapComponent() {
             onUnmount={onUnmount}
         >
             { 
-                virginia_data.map((item, index) => {
-                    let iconChoice = minorIcon;
-                    if (item.loan_size_rank_by_state < 0.25) {
-                        iconChoice = minorIcon;
-                    } else if (item.loan_size_rank_by_state >= 0.25 && item.loan_size_rank_by_state < 0.50) {
-                        iconChoice = moderateIcon;
-                    } else if (item.loan_size_rank_by_state >= 0.50 && item.loan_size_rank_by_state < 0.75) {
-                        iconChoice = seriousIcon;
-                    } else if (item.loan_size_rank_by_state >= 0.75) {
-                        iconChoice = criticalIcon
-                    }
-                    return (
-                        <Marker 
-                            key={'marker' + index} 
-                            position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
-                            icon={iconChoice} 
-                            onClick={() => onSelect(item)} //item in the array of data
-                        />
-                    )
-                })
+                locations ?
+                (
+                    locations.map((item, index) => {
+                        let iconChoice = minorIcon;
+                        if (item.loan_size_rank_by_state < 0.25) {
+                            iconChoice = minorIcon;
+                        } else if (item.loan_size_rank_by_state >= 0.25 && item.loan_size_rank_by_state < 0.50) {
+                            iconChoice = moderateIcon;
+                        } else if (item.loan_size_rank_by_state >= 0.50 && item.loan_size_rank_by_state < 0.75) {
+                            iconChoice = seriousIcon;
+                        } else if (item.loan_size_rank_by_state >= 0.75) {
+                            iconChoice = criticalIcon
+                        }
+                        return (
+                            <Marker 
+                                key={'marker' + index} 
+                                position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
+                                icon={iconChoice} 
+                                onClick={() => onSelect(item)} //item in the array of data
+                            />
+                        )
+                    })
+                ) : <></>
             }
             {
             selected ? (
@@ -122,7 +128,7 @@ function MapComponent() {
                             zip_code_first5={selected.zip_code_first5}
                         />
                         <a style={{fontWeight: '400'}} href={`https://www.google.com/maps/search/?api=1&query=${selected.lat_long[0]},${selected.lat_long[1]}`}>Get Directions on Google Maps</a>
-
+                        <p>{selected.loan_size_urgency}</p>
                     </div>
                 </InfoWindow>
                 ) : <></>
