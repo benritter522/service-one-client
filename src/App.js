@@ -25,21 +25,12 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            <Nav.Link>
-              <Link to="/" style={{
-                textDecoration: 'none'
-              }}>Home</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/map" style={{
-                textDecoration: 'none'
-              }}>Map</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/list" style={{
-                textDecoration: 'none'
-              }}>List</Link>
-            </Nav.Link>
+              <Link to="/" style={{textDecoration: 'none', marginLeft: 50}}
+                >Home</Link>
+              <Link to="/map" style={{textDecoration: 'none', marginLeft: 50}}
+                >Map</Link>
+              <Link to="/list" style={{textDecoration: 'none', marginLeft: 50}}
+                >List</Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
