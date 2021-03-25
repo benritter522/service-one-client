@@ -17,7 +17,9 @@ const center = {
     lat: 37.5407
 };
 
-function MapComponent() {
+function MapComponent(props) {
+
+    const { minorChecked, moderateChecked, seriousChecked, criticalChecked } = props;
 
     const [locations, setLocations] = useState([]);
 
