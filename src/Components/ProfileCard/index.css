@@ -8,16 +8,16 @@
   border: 1px solid #000000;
   border-radius: 10px;
   display: flex;
-  height: 156px;
+  height: 200px;
   filter: drop-shadow(0px 4px 4px rgba(200,201,209,0.58));
   letter-spacing: 2px;
   margin: 20px;
-  width: 375px;
+  width: 400px;
 }
 .cardHeader {
   color: #2d42ba;
   font-family: 'Karla', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 22px;
   text-align: left;
   margin-bottom: 9px;
@@ -32,6 +32,6 @@
 }
 .need-indicator {
   position: absolute;
-  left: 253px;
-  top: 125px;
+  right: 11px;
+  bottom: 11px;
 }
