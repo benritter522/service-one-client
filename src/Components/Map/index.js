@@ -22,7 +22,7 @@ function MapComponent() {
 
     const fetchLocations = async () => {
         try {
-            const response = await fetch('https://villagr.herokuapp.com/api/VA?page=1&limit=1000')
+            const response = await fetch('https://villagr.herokuapp.com/api/VA?page=1&limit=1500')
             const data = await response.json();
             // console.log(data.data);
             setLocations(data.data);
