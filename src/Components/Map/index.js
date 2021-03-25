@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import ProfileCard from '../ProfileCard';
+
 // const virginia_data = require('../../data/loan_data_TEST');
 
 const containerStyle = {
@@ -12,8 +13,8 @@ const containerStyle = {
 };
 
 const center = {
-    lng: -77.0369,
-    lat: 38.9072
+    lng: -77.4360,
+    lat: 37.5407
 };
 
 function MapComponent() {
