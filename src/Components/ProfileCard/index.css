@@ -1,3 +1,8 @@
+.business-image {
+  height: 135px;
+  margin: 10px;
+  width: 100px;
+}
 
 .card {
   border: 1px solid #000000;
@@ -25,9 +30,8 @@
   text-transform: uppercase;
   line-height: 16px;
 }
-img {
-  font-size: 11px;
-  height: 135px;
-  margin: 10px;
-  width: 100px;
+.need-indicator {
+  position: absolute;
+  left: 253px;
+  top: 125px;
 }
