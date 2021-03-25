@@ -13,13 +13,17 @@ class ListView extends Component {
           street_address="123 Main Street"
           city="Springfield"
           state="AB"
-          zip_code_first5="12345"/>
+          zip_code_first5="12345"
+          lat_long="[0,0]"
+          loan_size_urgency="I am super urgent!"/>
         <ProfileCard
           business_name="Business Name"
           street_address="123 Main Street"
           city="Springfield"
           state="AB"
-          zip_code_first5="12345"/>
+          zip_code_first5="12345"
+          lat_long="[0,0]"
+          loan_size_urgency="I am super urgent!"/>
       </div>
     )
   }
