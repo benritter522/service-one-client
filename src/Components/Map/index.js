@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+import ProfileCard from '../ProfileCard';
+// const virginia_data = require('../../data/loan_data_TEST');
 
 const containerStyle = {
     width: '90vw',
     height: '60vh',
     alignSelf: 'center',
+    margin: '0 auto',
     marginBottom: '50px'
 };
 
 const center = {
-    lng: -73.9934,
-    lat: 40.7505
+    lng: -77.0369,
+    lat: 38.9072
 };
 
-function MapComponent(props) {
+function MapComponent() {
+
+    const [locations, setLocations] = useState([]);
+
+    const fetchLocations = async () => {
+        try {
+            const response = await fetch('https://villagr.herokuapp.com/api/DC')
+            const data = await response.json();
+            // console.log(data.data);
+            setLocations(data.data);
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -36,6 +53,33 @@ function MapComponent(props) {
         setMap(null)
     }, [])
 
+    useEffect(() => {
+        fetchLocations();
+    }, [locations]);
+
+    const minorIcon = {
+        // url: '../../icons/Minor_Need.png',
+        url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Minor_Need_m0lnc5.png',
+        scaledSize: { width: 20, height: 25 }
+    }
+    const moderateIcon = {
+        // url: '../../icons/Moderate_Need.png',
+        url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Moderate_Need_lhwil8.png',
+        scaledSize: { width: 20, height: 25 }
+    }
+    const seriousIcon = {
+        // url: '../../icons/Serious_Need.png',
+        url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Serious_Need_kzcveb.png',
+        scaledSize: { width: 20, height: 25 }
+    }
+    const criticalIcon = {
+        // url: '../../icons/Critical_Need.png',
+        url: 'https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Critical_Need_csmdmo.png',
+        scaledSize: { width: 20, height: 25 }
+    }
+
+    // console.log(locations);
+
     return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
@@ -44,24 +88,48 @@ function MapComponent(props) {
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
-            <Marker 
-                // key={item.index} 
-                // position={{lat: item.latitude, lng: item.longitude}}
-                position={center}
-                // icon={compostIcon} 
-
-                // onClick={() => onSelect(item)} //item in the array of data
-            />
+            { 
+                locations ?
+                (
+                    locations.map((item, index) => {
+                        let iconChoice = minorIcon;
+                        if (item.loan_size_rank_by_state < 0.25) {
+                            iconChoice = minorIcon;
+                        } else if (item.loan_size_rank_by_state >= 0.25 && item.loan_size_rank_by_state < 0.50) {
+                            iconChoice = moderateIcon;
+                        } else if (item.loan_size_rank_by_state >= 0.50 && item.loan_size_rank_by_state < 0.75) {
+                            iconChoice = seriousIcon;
+                        } else if (item.loan_size_rank_by_state >= 0.75) {
+                            iconChoice = criticalIcon
+                        }
+                        return (
+                            <Marker 
+                                key={'marker' + index} 
+                                position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
+                                icon={iconChoice} 
+                                onClick={() => onSelect(item)} //item in the array of data
+                            />
+                        )
+                    })
+                ) : <></>
+            }
             {
             selected ? (
                 <InfoWindow
-                    // position={{lat: selected.latitude, lng: selected.longitude}}
-                    position={center}
+                    position={{lat: selected.lat_long[0], lng: selected.lat_long[1]}}
                     clickable={true}
                     onCloseClick={() => setSelected(null)}
                 >
                     <div>
-                        <p>I am a Marker's InfoWindow</p>
+                        <ProfileCard
+                            business_name={selected.business_name}
+                            street_address={selected.street_address}
+                            city={selected.city}
+                            state={selected.state}
+                            zip_code_first5={selected.zip_code_first5}
+                        />
+                        <a style={{fontWeight: '400'}} href={`https://www.google.com/maps/search/?api=1&query=${selected.lat_long[0]},${selected.lat_long[1]}`}>Get Directions on Google Maps</a>
+                        <p>{selected.loan_size_urgency}</p>
                     </div>
                 </InfoWindow>
                 ) : <></>
