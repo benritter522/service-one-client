@@ -1,6 +1,6 @@
 // import Map from '../Map';
 
-import { Route, Link, Switch } from 'react-router-dom';
+// import { Route, Link, Switch } from 'react-router-dom';
 // import ProfileCard from '../ProfileCard';
 // import ToggleSwitch from '../ToggleSwitch'
 // import Grid from '@material-ui/core/Grid';
