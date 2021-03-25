@@ -8,7 +8,7 @@ function ListView() {
 
   const fetchLocations = async () => {
       try {
-          const response = await fetch('https://villagr.herokuapp.com/api/DC')
+          const response = await fetch('https://villagr.herokuapp.com/api/VA?page=1&limit=1000')
           const data = await response.json();
           // console.log(data.data);
           setLocations(data.data);
@@ -16,7 +16,9 @@ function ListView() {
           console.error(error);
       }
   }
-  fetchLocations()
+  useEffect(() => {
+      fetchLocations();
+  }, []);
 
 
   return locations ? (
