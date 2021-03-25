@@ -25,14 +25,15 @@ function ListView() {
     <div>
       {locations.map((selected, index) => (
         <ProfileCard
-            key={index}
-            business_name={selected.business_name}
-            street_address={selected.street_address}
-            city={selected.city}
-            state={selected.state}
-            zip_code_first5={selected.zip_code_first5}
-            lat_long={selected.lat_long}
-            loan_size_urgency={selected.loan_size_urgency}
+          key={index}
+          business_name={selected.business_name}
+          street_address={selected.street_address}
+          city={selected.city}
+          state={selected.state}
+          zip_code_first5={selected.zip_code_first5}
+          lat_long={selected.lat_long}
+          loan_size_rank_by_state={selected.loan_size_rank_by_state}
+
         />
       ))}
     </div>
