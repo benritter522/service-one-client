@@ -15,6 +15,9 @@ class ProfileCard extends Component {
         <div className='cardBody'>
           <div>{this.props.street_address},</div>
           <div>{this.props.city}, {this.props.state} {this.props.zip_code_first5}</div>
+          <br/>
+          <div style={{fontStyle: 'italic'}}>{this.props.loan_size_urgency}</div>
+          <a style={{fontWeight: '400'}} href={`https://www.google.com/maps/search/?api=1&query=${this.props.lat_long[0]},${this.props.lat_long[1]}`}>Get Directions on Google Maps</a>
         </div>
       </div>
       </Base>
