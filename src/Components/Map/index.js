@@ -8,8 +8,7 @@ const containerStyle = {
     width: '90vw',
     height: '60vh',
     alignSelf: 'center',
-    margin: '0 auto',
-    marginBottom: '50px'
+    margin: '0 auto'
 };
 
 const center = {
@@ -25,7 +24,7 @@ function MapComponent(props) {
 
     const fetchLocations = async () => {
         try {
-            const response = await fetch('https://villagr.herokuapp.com/api/VA?page=1&limit=1000')
+            const response = await fetch('https://villagr.herokuapp.com/api/VA?page=1&limit=1500')
             const data = await response.json();
             // console.log(data.data);
             setLocations(data.data);
@@ -43,6 +42,7 @@ function MapComponent(props) {
     const [map, setMap] = React.useState(null)
     const [ selected, setSelected ] = React.useState(null);
 
+    console.log(map);
     const onSelect = item => {
         setSelected(item);
     }
@@ -113,7 +113,7 @@ function MapComponent(props) {
                         ?
                         (
                             <Marker 
-                                key={'marker' + index} 
+                                key={index} 
                                 position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
                                 icon={iconChoice} 
                                 onClick={() => onSelect(item)} //item in the array of data
