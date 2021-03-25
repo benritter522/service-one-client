@@ -12,18 +12,19 @@ const Home = () => {
             <h1>Home Page</h1>
 
 
+
             { /* <div className='switch'>
-              <Grid component="label"
+                <Grid component="label"
                     container
                     alignItems="center"
                     spacing={1}
                     justify="center">
                 <Grid item>Map</Grid>
                 <Grid item>
-                  <ToggleSwitch />
+                    <ToggleSwitch />
                 </Grid>
                 <Grid item>List</Grid>
-              </Grid>
+                </Grid>
             </div>
 
             <ToggleView checked={ToggleSwitch.checked}/> */}
