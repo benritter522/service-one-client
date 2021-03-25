@@ -106,13 +106,19 @@ function MapComponent(props) {
                             iconChoice = criticalIcon
                         }
                         return (
+                            ((iconChoice === minorIcon && minorChecked) || 
+                            (iconChoice === moderateIcon && moderateChecked) || 
+                            (iconChoice === seriousIcon && seriousChecked) || 
+                            (iconChoice === criticalIcon && criticalChecked))
+                        ?
+                        (
                             <Marker 
                                 key={'marker' + index} 
                                 position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
                                 icon={iconChoice} 
                                 onClick={() => onSelect(item)} //item in the array of data
                             />
-                        )
+                        ) : <></>)
                     })
                 ) : <></>
             }
