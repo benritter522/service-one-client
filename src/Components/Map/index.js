@@ -7,6 +7,7 @@ const containerStyle = {
     width: '90vw',
     height: '60vh',
     alignSelf: 'center',
+    margin: '0 auto',
     marginBottom: '50px'
 };
 
@@ -83,7 +84,7 @@ function MapComponent() {
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
-            zoom={10}
+            zoom={12}
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
