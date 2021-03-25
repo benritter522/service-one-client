@@ -42,7 +42,7 @@ function MapComponent(props) {
     const [map, setMap] = React.useState(null)
     const [ selected, setSelected ] = React.useState(null);
 
-    console.log(map);
+    // console.log(map);
     const onSelect = item => {
         setSelected(item);
     }
