@@ -8,7 +8,7 @@ function ListView() {
 
   const fetchLocations = async () => {
       try {
-          const response = await fetch('https://villagr.herokuapp.com/api/VA?page=1&limit=1000')
+          const response = await fetch('https://villagr.herokuapp.com/api/VA?page=1&limit=20')
           const data = await response.json();
           // console.log(data.data);
           setLocations(data.data);
@@ -33,7 +33,6 @@ function ListView() {
           zip_code_first5={selected.zip_code_first5}
           lat_long={selected.lat_long}
           loan_size_rank_by_state={selected.loan_size_rank_by_state}
-
         />
       ))}
     </div>
