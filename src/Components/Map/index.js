@@ -137,7 +137,7 @@ function MapComponent(props) {
                             state={selected.state}
                             zip_code_first5={selected.zip_code_first5}
                             lat_long={selected.lat_long}
-                            loan_size_urgency={selected.loan_size_urgency}
+                            loan_size_rank_by_state={selected.loan_size_rank_by_state}
                         />
                     </div>
                 </InfoWindow>
