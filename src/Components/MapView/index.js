@@ -26,7 +26,15 @@ const MapView = () => {
 
     return(
       <div>
-        <div style={{display: 'flex', justifyContent: 'space-around'}}>
+
+        <Map 
+          minorChecked={minorChecked} 
+          moderateChecked={moderateChecked} 
+          seriousChecked={seriousChecked} 
+          criticalChecked={criticalChecked}
+        />
+        <p>View Businesses Based On Your Desired Impact:</p>
+        <div style={{display: 'flex', flexWrap: 'wrap', maxWidth: '100vw', marginBottom: 20, justifyContent: 'center'}}>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
             <Checkbox 
               checked={minorChecked} 
@@ -67,15 +75,7 @@ const MapView = () => {
             <p>Critical Impact</p>
             <img style={{width: 40, height: 50}} src="https://res.cloudinary.com/bitingrent/image/upload/v1616616185/service-one/Critical_Need_csmdmo.png" alt=""/>
           </div>
-
         </div>
-
-        <Map 
-          minorChecked={minorChecked} 
-          moderateChecked={moderateChecked} 
-          seriousChecked={seriousChecked} 
-          criticalChecked={criticalChecked}
-        />
       </div>
     )
 }

@@ -8,8 +8,7 @@ const containerStyle = {
     width: '90vw',
     height: '60vh',
     alignSelf: 'center',
-    margin: '0 auto',
-    marginBottom: '50px'
+    margin: '0 auto'
 };
 
 const center = {
@@ -113,7 +112,7 @@ function MapComponent(props) {
                         ?
                         (
                             <Marker 
-                                key={'marker' + index} 
+                                key={index} 
                                 position={{lat: item.lat_long[0], lng: item.lat_long[1]}}
                                 icon={iconChoice} 
                                 onClick={() => onSelect(item)} //item in the array of data

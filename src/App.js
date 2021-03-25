@@ -9,7 +9,6 @@ import ListView from './Components/ListView';
 function App() {
   return (
     <div className="App">
-      <h1>hello service-one</h1>
       <Link to="/">Home</Link>
       <Link to="/map">Map</Link>
       <Link to="/list">List</Link>
