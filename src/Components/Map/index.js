@@ -22,7 +22,7 @@ function MapComponent() {
 
     const fetchLocations = async () => {
         try {
-            const response = await fetch('https://villagr.herokuapp.com/api/DC')
+            const response = await fetch('https://villagr.herokuapp.com/api/VA?page=1&limit=1000')
             const data = await response.json();
             // console.log(data.data);
             setLocations(data.data);
@@ -55,7 +55,7 @@ function MapComponent() {
 
     useEffect(() => {
         fetchLocations();
-    }, [locations]);
+    }, []);
 
     const minorIcon = {
         // url: '../../icons/Minor_Need.png',
@@ -127,9 +127,9 @@ function MapComponent() {
                             city={selected.city}
                             state={selected.state}
                             zip_code_first5={selected.zip_code_first5}
+                            lat_long={selected.lat_long}
+                            loan_size_urgency={selected.loan_size_urgency}
                         />
-                        <a style={{fontWeight: '400'}} href={`https://www.google.com/maps/search/?api=1&query=${selected.lat_long[0]},${selected.lat_long[1]}`}>Get Directions on Google Maps</a>
-                        <p>{selected.loan_size_urgency}</p>
                     </div>
                 </InfoWindow>
                 ) : <></>
