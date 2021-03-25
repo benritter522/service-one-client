@@ -2,6 +2,7 @@
 
 import { Route, Link, Switch } from 'react-router-dom';
 
+
 const Home = () => {
     return (
         <div className="Home">
