@@ -2,6 +2,9 @@
 
 # Villagr e-Commerce Business App
 
+#### Index
+
+
 ## Summary
 ### Purpose
 We built Villagr, an e-Commerce web platform focused on **promoting small businesses in need**.  
@@ -37,13 +40,13 @@ As Grace Hopper, inventor of the **common business** -oriented language (COBOL),
 
 ## Data Insights
 
-Discoveries & Features     |  Explanation
-:-------------------------:|:-------------------------:
-Source: | Our Data comes from the SBA’s Economic Injury Disaster Loan (EIDL) program.
-Relevance: | With data current as of December 2020, this program offered an emergency provision of working capital to small businesses impacted by the pandemic.
-Defining Need: | The size of the loan amount is a useful proxy for “how much injury” was sustained.
-Feature Engineering: | Quartile ranks were calculated based on loan size.
-User Opportunity: | The user gains visibility into the scale of their financial impact on a recovering business in their city or state.
+**Discoveries & Features**     |  **Explanation**
+-------------------------:|:-------------------------
+Source | Our Data comes from the SBA’s Economic Injury Disaster Loan (EIDL) program.
+Relevance | With data current as of December 2020, this program offered an emergency provision of working capital to small businesses impacted by the pandemic.
+Defining Need | The size of the loan amount is a useful proxy for “how much injury” was sustained.
+Feature Engineering | Quartile ranks were calculated based on loan size.
+User Opportunity | The user gains visibility into the scale of their financial impact on a recovering business in their city or state.
 
 ## UX Prototype
 Figma Demonstration Link
