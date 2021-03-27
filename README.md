@@ -2,12 +2,26 @@
 
 # Villagr e-Commerce Business App
 
-#### Index
-
-
-## Summary
+## Description
 ### Purpose
 We built Villagr, an e-Commerce web platform focused on **promoting small businesses in need**.  
+
+## Index
+[Summary](#summary)<br/>
+[Purpose](#purpose)<br/>
+[Problem](#problem)<br/>
+[Solution](#solution)<br/>
+[Background and Context](#background-and-context)<br/>
+[Research](#research)<br/>
+[Competitive and Comparative Market Analysis](#competitive-and-comparative-market-analysis)<br/>
+[Information Architecture](#information-architecture)<br/>
+[Wireflows](#wireflows)<br/>
+[Data Insights](#data-insights)<br/>
+[UX Prototype](#ux-prototype)<br/>
+[Credits](#credits)<br/>
+[Our Team](#our-team)<br/>
+
+## Summary
 
 ### Problem
 - **Small-business owners** and **service providers** that are struggling financially need to be **prioritized** and given more **visibility** in online spaces.
@@ -20,7 +34,7 @@ Create a website that allows users to search and browse local service providers,
 :-------------------------:|:-------------------------:
 ![Problem](https://user-images.githubusercontent.com/14967456/112701952-63f9f280-8e68-11eb-843c-2e446584c592.png)  |  ![Solution](https://user-images.githubusercontent.com/14967456/112701961-68bea680-8e68-11eb-88b0-1b043225632b.png)
 
-## Background & Context
+## Background and Context
 With **small service businesses** shuttering around the country, Villagr has identified a way to help **uplift and positively impact small businesses** and help them reach new customers and stay connected to the community. What happens when no one is out in the world, looking for places to try? With our mission to help small businesses stay relevant in a virtual society, we pivoted to making sure customers can share and book businesses that most urgently need local rallying support to survive. Villagr is built to help small businesses gain the visibility to reach new audiences, and to inspire folks to support local entrepreneurship.
 
 The Villagr team is a group of innovators and changemakers dedicated to business transformation.
@@ -30,7 +44,7 @@ As Grace Hopper, inventor of the **common business** -oriented language (COBOL),
 >They love to say, 'We've always done it this way.' I try to fight that. 
 
 ## Research
-### Competitive & Comparative Market Analysis
+### Competitive and Comparative Market Analysis
 ![C C](https://user-images.githubusercontent.com/14967456/112701739-d3231700-8e67-11eb-8b52-89970feef0ad.png)
 
 ## Information Architecture
