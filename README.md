@@ -8,15 +8,13 @@ We built Villagr, an e-Commerce web platform focused on **promoting small busine
 
 ## Index
 [Summary](#summary)<br/>
-[Purpose](#purpose)<br/>
-[Problem](#problem)<br/>
-[Solution](#solution)<br/>
 [Background and Context](#background-and-context)<br/>
 [Research](#research)<br/>
 [Competitive and Comparative Market Analysis](#competitive-and-comparative-market-analysis)<br/>
+[Data Insights](#data-insights)<br/>
 [Information Architecture](#information-architecture)<br/>
 [Wireflows](#wireflows)<br/>
-[Data Insights](#data-insights)<br/>
+[Features](#features)<br/>
 [UX Prototype](#ux-prototype)<br/>
 [Credits](#credits)<br/>
 [Our Team](#our-team)<br/>
@@ -40,17 +38,14 @@ With **small service businesses** shuttering around the country, Villagr has ide
 The Villagr team is a group of innovators and changemakers dedicated to business transformation.
 
 As Grace Hopper, inventor of the **common business** -oriented language (COBOL), once said:
->Humans are allergic to change. 
->They love to say, 'We've always done it this way.' I try to fight that. 
+```
+Humans are allergic to change. 
+They love to say, 'We've always done it this way.' I try to fight that. 
+```
 
 ## Research
 ### Competitive and Comparative Market Analysis
 ![C C](https://user-images.githubusercontent.com/14967456/112701739-d3231700-8e67-11eb-8b52-89970feef0ad.png)
-
-## Information Architecture
-### Wireflows
-![Info Architecture](https://user-images.githubusercontent.com/14967456/112705989-97904900-8e77-11eb-98a8-f7a065ac2207.png)
-
 
 ## Data Insights
 
@@ -62,17 +57,37 @@ Defining Need | The size of the loan amount is a useful proxy for “how much in
 Feature Engineering | Quartile ranks were calculated based on loan size.
 User Opportunity | The user gains visibility into the scale of their financial impact on a recovering business in their city or state.
 
+## Information Architecture
+### Wireflows
+![Info Architecture](https://user-images.githubusercontent.com/14967456/112705989-97904900-8e77-11eb-98a8-f7a065ac2207.png)
+
+## Features
+#### Pages
+- [x] Homepage
+- [x] Map View
+- [x] List View
+#### Components
+- [x] Business Profile Cards with Address
+- [x] Geo-Location Pins
+- [x] Level of Need/Impact Indicator Chips
+- [x] Control toggles
+- [x] Villagr Logo and Favicon
+- [x] Business profile image placeholders
+
+## Style Guide
+![Appendix_ Style Guide](https://user-images.githubusercontent.com/14967456/112707164-96fbb080-8e7f-11eb-9adf-807ee1ca73f1.png)
+
+
 ## UX Prototype
-Figma Demonstration Link
-https://www.figma.com/proto/dSs0rJgDDpYqgtVMTLmzdB/Villagr-eCommerce-Service-Hackathon?node-id=3%3A16&viewport=433%2C220%2C0.1557885706424713&scaling=scale-down&page-id=3%3A1
+### Click here to view the prototype:
+#### [Figma Prototype Link](https://www.figma.com/proto/dSs0rJgDDpYqgtVMTLmzdB/Villagr-eCommerce-Service-Hackathon?node-id=3%3A16&viewport=433%2C220%2C0.1557885706424713&scaling=scale-down&page-id=3%3A1) :point_left: 
 
 # Credits 
 ## Data Science Sources
-Small Business Association (SBA): COVID-19 Economic Injury Disaster Loan (EIDL) Program
-https://www.sba.gov/funding-programs/loans/covid-19-relief-options/covid-19-economic-injury-disaster-loan#section-header-6
+#### Links:
+[Small Business Association (SBA): COVID-19 Economic Injury Disaster Loan (EIDL) Program](https://www.sba.gov/funding-programs/loans/covid-19-relief-options/covid-19-economic-injury-disaster-loan#section-header-6)
 
-US Department of the Treasury: State Small Business Credit Initiative (SSBCI) Transactions Dataset, Data.Gov
-https://catalog.data.gov/dataset/state-small-business-credit-initiative-ssbci-transactions-dataset
+[US Department of the Treasury: State Small Business Credit Initiative (SSBCI) Transactions Dataset, Data.Gov](https://catalog.data.gov/dataset/state-small-business-credit-initiative-ssbci-transactions-dataset)
 
 ## Our Team
 ![Our Team](https://user-images.githubusercontent.com/14967456/112701812-02d21f00-8e68-11eb-8ad4-aecde13bee50.png)
