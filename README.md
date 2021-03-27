@@ -5,6 +5,7 @@
 ## Description
 ### Purpose
 We built Villagr, an e-Commerce web platform focused on **promoting small businesses in need**.  
+Live Demo: https://villagr-client.herokuapp.com/map
 
 ## Index
 [Summary](#summary)<br/>
