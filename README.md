@@ -12,6 +12,7 @@ Live Demo: https://villagr-client.herokuapp.com/map
 [Background and Context](#background-and-context)<br/>
 [Research](#research)<br/>
 [Competitive and Comparative Market Analysis](#competitive-and-comparative-market-analysis)<br/>
+[User Stories](#user-stories)<br/>
 [Data Insights](#data-insights)<br/>
 [Information Architecture](#information-architecture)<br/>
 [Wireflows](#wireflows)<br/>
@@ -47,6 +48,9 @@ They love to say, 'We've always done it this way.' I try to fight that.
 ## Research
 ### Competitive and Comparative Market Analysis
 ![C C](https://user-images.githubusercontent.com/14967456/112701739-d3231700-8e67-11eb-8b52-89970feef0ad.png)
+
+### User Stories
+![Persona](https://user-images.githubusercontent.com/14967456/112757800-48523180-8fb9-11eb-8c90-fca474c00d8a.png)
 
 ## Data Insights
 
